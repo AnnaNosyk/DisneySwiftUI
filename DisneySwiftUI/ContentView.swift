@@ -9,39 +9,95 @@ import SwiftUI
 
 struct ContentView: View {
     @State var show = false
+    @State var stateView = CGSize.zero
+    @State var showCard = false
+    @State var botomState = CGSize.zero
+    @State var showFull = false
     var body: some View {
         ZStack {
             TitleView()
                 .blur(radius:show ? 20 : 0)
-                .animation(.default)
+                .opacity(showCard ? 0.4 : 1)
+                .animation(.default
+                    .delay(0.1))
             BackCardView(image: "nala")
-             //   .background(Color("backGroungLionKing2"))
+                .frame(width: 340, height: 220)
                 .cornerRadius(20)
                 .shadow(radius: 20)
                 .offset(x:0,y:show ? -400 : -40)
-                .scaleEffect(0.9)
+                .offset(x:stateView.width, y:stateView.height)
+                .offset(y: showCard ? -180 : 0)
+                .scaleEffect(showCard ? 1 : 0.9)
                 .rotationEffect(.degrees(show ? 0: 10))
-               .rotation3DEffect(.degrees(10), axis: (x: 10, y: 0, z: 0))
+                .rotationEffect(.degrees(showCard ? -10: 0))
+                .rotation3DEffect(.degrees(showCard ? 0 : 10), axis: (x: 10, y: 0, z: 0))
               .animation(.easeIn(duration: 0.5))
               
-              
             BackCardView(image: "simba")
-              //  .background(Color("backGroungLionKing1"))
+                .frame(width: 340, height: 220)
                 .cornerRadius(20)
                 .shadow(radius: 20)
                 .offset(x:0,y:show ? -200 : -20)
-                .scaleEffect(0.95)
+                .offset(x:stateView.width, y:stateView.height)
+                .offset(y: showCard ? -140 : 0)
+                .scaleEffect(showCard ? 1 : 0.95)
                 .rotationEffect(.degrees(show ? 0 : 5))
-                .rotation3DEffect(.degrees(5), axis: (x: 10, y: 0, z: 0))
+                .rotationEffect(.degrees(showCard ? -5: 0))
+                .rotation3DEffect(.degrees(showCard ? 0 : 5), axis: (x: 10, y: 0, z: 0))
                 .animation(.easeIn(duration: 0.4))
-             
             LionKingView()
+                .frame(width:showCard ? 375 : 340,height: 220)
+                .background(Color("fontLionKing"))
+               // .cornerRadius(20)
+                .clipShape(RoundedRectangle(cornerRadius:showCard ? 30: 20,style: .continuous))
+                .shadow(radius: 20)
+                .offset(x:stateView.width, y:stateView.height)
+                .offset(y: showCard ? -100 : 0)
+                .animation(.spring(response: 0.3,dampingFraction: 0.6, blendDuration: 0))
                 .onTapGesture {
-                    self.show.toggle()
+                    self.showCard.toggle() //showCard
                 }
+                .gesture(
+                    DragGesture()
+                        .onChanged({ value in
+                        self.stateView = value.translation
+                        self.show = true
+                    })
+                        .onEnded({ value in
+                            self.stateView = .zero
+                            self.show = false
+                        })
+                )
             BottomCardView()
+                .offset(x:0, y: showCard ? 360 : 1000)
+                .offset(y:botomState.height)
                 .blur(radius:show ? 20 : 0)
-                .animation(.default)
+                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8))
+                .gesture(
+                    DragGesture()
+                        .onChanged({ value in
+                            self.botomState = value.translation
+                            if self.showFull {
+                                self.botomState.height += -300
+                            }
+                            if self.botomState.height < -300 {
+                                self.botomState.height = -300
+                            }
+                        })
+                        .onEnded({ value in
+                            if self.botomState.height > 50 {
+                                self.showCard = false
+                            }
+                            if (self.botomState.height < -100 && !self.showFull) || (self.botomState.height < 250 && self.showFull) {
+                                self.botomState.height = -300
+                                self.showFull = true
+                            } else {
+                                self.botomState = .zero
+                                self.showFull = false
+                            }
+                            
+                        })
+                )
         }
     }
 }
@@ -80,10 +136,6 @@ struct LionKingView: View {
                 .frame(width: 300,height: 110,alignment: .top)
             
         }
-        .frame(width: 340,height: 220)
-        .background(Color("fontLionKing"))
-        .cornerRadius(20)
-        .shadow(radius: 20)
     }
 }
 
@@ -94,11 +146,8 @@ struct BackCardView: View {
             Image(self.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-
-           
             Spacer()
         }
-        .frame(width: 340, height: 220)
         
     }
 }
@@ -130,14 +179,15 @@ struct BottomCardView: View {
                 .multilineTextAlignment(.center)
                 .lineSpacing(4)
                 .font(.headline)
+                .foregroundColor(Color("backgroundLionKing"))
             Spacer()
         }
         .padding(.top, 8)
         .padding(.horizontal, 24)
         .frame(maxWidth: .infinity)
-        .background(Color("title"))
+        .background(Color("bottomLionKingView"))
         .cornerRadius(30)
         .shadow(radius: 20)
-        .offset(x:0, y: 500)
+        
     }
 }
