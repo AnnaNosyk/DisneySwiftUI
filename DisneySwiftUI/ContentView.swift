@@ -18,8 +18,7 @@ struct ContentView: View {
             TitleView()
                 .blur(radius:show ? 20 : 0)
                 .opacity(showCard ? 0.4 : 1)
-                .animation(.default
-                    .delay(0.1))
+                .animation(.default)
             BackCardView(image: "nala")
                 .frame(width: 340, height: 220)
                 .cornerRadius(20)
@@ -68,7 +67,8 @@ struct ContentView: View {
                             self.show = false
                         })
                 )
-            BottomCardView()
+            
+            BottomCardView(show: $showCard)
                 .offset(x:0, y: showCard ? 360 : 1000)
                 .offset(y:botomState.height)
                 .blur(radius:show ? 20 : 0)
@@ -98,8 +98,12 @@ struct ContentView: View {
                             
                         })
                 )
+            
         }
+       
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -151,35 +155,67 @@ struct BackCardView: View {
         
     }
 }
-
 struct TitleView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Lion King")
+                Text("My Lion King collection")
                     .foregroundColor(Color("title"))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Spacer()
             }
             .padding()
+            Image("logoLion")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
             Spacer()
         }  .background(Color("backgroundLionKing"))
     }
 }
 
 struct BottomCardView: View {
+    @Binding var show: Bool
+    var color1 = Color("backgroundLionKing")
+    var color2 = Color("backGroungLionKing2")
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 8) {
             Rectangle()
                 .frame(width: 40, height: 5)
                 .cornerRadius(3)
                 .opacity(0.1)
-            Text("Choose your favourite  Lion King cards")
+            Text("Open and collect all The Lion King pictures")
                 .multilineTextAlignment(.center)
                 .lineSpacing(4)
                 .font(.headline)
-                .foregroundColor(Color("backgroundLionKing"))
+                .foregroundColor(.black)
+            HStack(spacing: 20) {
+                RingView(color1: color1, color2: color2, widthHeight: 88, percent: 78, show: $show)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Your personal collection of Lion King pictures")
+                        .foregroundColor(Color("backgroundLionKing"))
+                        .bold()
+                        .font(.callout)
+                    Text("78 out of 100 pictures are already opened.")
+                        .font(.footnote)
+                        .foregroundColor(Color("titleLionKing"))
+                    
+                }
+                .padding(20)
+                .background(Color("title"))
+                .cornerRadius(20)
+                .shadow(color: .black.opacity(0.2), radius: 20, x: 0, y: 10)
+                
+                
+            }
+              Image("simba&nala")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Image("logoLion")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+             
+                
             Spacer()
         }
         .padding(.top, 8)
