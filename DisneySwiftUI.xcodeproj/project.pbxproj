@@ -12,6 +12,8 @@
 		178842CE2A07D2A50092300D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178842CD2A07D2A50092300D /* Assets.xcassets */; };
 		178842D12A07D2A50092300D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178842D02A07D2A50092300D /* Preview Assets.xcassets */; };
 		178842D82A0823260092300D /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178842D72A0823260092300D /* RingView.swift */; };
+		178842DA2A0929E90092300D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178842D92A0929E90092300D /* HomeView.swift */; };
+		178842DC2A092A060092300D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178842DB2A092A060092300D /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		178842CD2A07D2A50092300D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		178842D02A07D2A50092300D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		178842D72A0823260092300D /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		178842D92A0929E90092300D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		178842DB2A092A060092300D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				178842C92A07D2A40092300D /* DisneySwiftUIApp.swift */,
 				178842CB2A07D2A40092300D /* ContentView.swift */,
+				178842D92A0929E90092300D /* HomeView.swift */,
+				178842DB2A092A060092300D /* MenuView.swift */,
 				178842CD2A07D2A50092300D /* Assets.xcassets */,
 				178842CF2A07D2A50092300D /* Preview Content */,
 				178842D72A0823260092300D /* RingView.swift */,
@@ -140,7 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178842DC2A092A060092300D /* MenuView.swift in Sources */,
 				178842D82A0823260092300D /* RingView.swift in Sources */,
+				178842DA2A0929E90092300D /* HomeView.swift in Sources */,
 				178842CC2A07D2A40092300D /* ContentView.swift in Sources */,
 				178842CA2A07D2A40092300D /* DisneySwiftUIApp.swift in Sources */,
 			);
