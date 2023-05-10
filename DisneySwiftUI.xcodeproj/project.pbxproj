@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171AF3A12A0A9B330094C25B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171AF3A02A0A9B330094C25B /* Home.swift */; };
 		178842CA2A07D2A40092300D /* DisneySwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178842C92A07D2A40092300D /* DisneySwiftUIApp.swift */; };
 		178842CC2A07D2A40092300D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178842CB2A07D2A40092300D /* ContentView.swift */; };
 		178842CE2A07D2A50092300D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178842CD2A07D2A50092300D /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171AF3A02A0A9B330094C25B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		178842C62A07D2A40092300D /* DisneySwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisneySwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178842C92A07D2A40092300D /* DisneySwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneySwiftUIApp.swift; sourceTree = "<group>"; };
 		178842CB2A07D2A40092300D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				178842CB2A07D2A40092300D /* ContentView.swift */,
 				178842D92A0929E90092300D /* HomeView.swift */,
 				178842DB2A092A060092300D /* MenuView.swift */,
+				171AF3A02A0A9B330094C25B /* Home.swift */,
 				178842CD2A07D2A50092300D /* Assets.xcassets */,
 				178842CF2A07D2A50092300D /* Preview Content */,
 				178842D72A0823260092300D /* RingView.swift */,
@@ -150,6 +153,7 @@
 				178842D82A0823260092300D /* RingView.swift in Sources */,
 				178842DA2A0929E90092300D /* HomeView.swift in Sources */,
 				178842CC2A07D2A40092300D /* ContentView.swift in Sources */,
+				171AF3A12A0A9B330094C25B /* Home.swift in Sources */,
 				178842CA2A07D2A40092300D /* DisneySwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
