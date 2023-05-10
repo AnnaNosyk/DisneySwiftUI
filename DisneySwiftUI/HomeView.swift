@@ -14,7 +14,7 @@ struct HomeView: View {
         ZStack {
             Color("background")
                 .edgesIgnoringSafeArea(.all)
-            Home(showProfile: $showProfile)
+            HomePage(showProfile: $showProfile)
             .padding(.top, 44)
             .background(Color.white)
             .edgesIgnoringSafeArea(.all)
